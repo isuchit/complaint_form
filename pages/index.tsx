@@ -27,11 +27,12 @@ type SelectProps = React.DetailedHTMLProps<
   HTMLSelectElement
 > & { options: Option[] };
 
+// eslint-disable-next-line react/display-name
 const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
   ({ options, ...props }, ref) => (
     <select ref={ref} {...props}>
       {options.map(({ label, value }) => (
-        <option key={value} value={value}>{label}</option>
+        <option key={1} value={value}>{label}</option>
       ))}
     </select>
   )
@@ -47,7 +48,7 @@ const Home: NextPage = () => {
 
   
 
-  const onSubmit = async (data: FormValues) => {
+  const onSubmit = async (data: any) => {
     try{
       const response = await fetch('https://v1.nocodeapi.com/srotti/google_sheets/khfesFSyFZrBGMXc?tabId=Sheet1', {
         method: 'POST',
